@@ -1,0 +1,77 @@
+@import "../../scss/variables";
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 2rem;
+}
+
+.cards {
+  //   border: 2px solid red;
+  position: relative;
+  width: 350px; // resim ile genişliği aynı olsun.
+  height: 350px;
+  overflow: hidden; //desc in kapsayıcısı cards oldugu içim burda taşan kısmı gizledik
+  &:hover .card-over {
+    //cards hover olunca .card-over translateY yukarı cıksın.
+    transform: translateY(0%);
+  }
+  &:hover img {
+    filter: blur(2px);
+  }
+
+  .title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: $cardNavBgColor;
+    padding: 0.8rem;
+    border-radius: 10px;
+    z-index: 3;
+    text-transform: uppercase;
+  }
+
+  .date {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: $cardNavBgColor;
+    padding: 0.5rem;
+    border-radius: 10px;
+    z-index: 3;
+    text-transform: uppercase;
+  }
+
+  img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover; //orjinaline yakın oluyor
+    border-radius: 10px;
+  }
+}
+
+.card-over {
+  width: 350px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem;
+  border-radius: 10px;
+  transform: translateY(100%);
+  // y ekseninde 100% aşagıda konumlandı.card hoverda yukarı cıkacak.
+  transition: transform 0.7s ease-in-out;
+  max-height: 50%; //yazılar cards in %75 ine kadar çıksın.
+  text-align: justify;
+  overflow: auto; //taşma varsa scroll gelir.
+  &::-webkit-scrollbar {
+    //scroll yapar. fakat scrollbar gizlenir.
+    display: none;
+  }
+}
+
+// desc için y ekseninde aşagıya 100% kayması lazım gözükmeyecek.Hover olunca 100% yukarı cıkacak.

@@ -1,0 +1,53 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.navbar {
+  display: flex;
+  height: 10vh;
+  // border: 1px solid red;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  background-color: antiquewhite;
+  border-bottom: 2px solid black;
+
+  .logo img {
+    height: 10vh;
+  }
+
+  .links {
+    font-size: 1.3rem;
+    a {
+      padding: 0 1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: $secondaryColor;
+      border-radius: 5px;
+      &:hover {
+        background-color: $secondaryColor;
+        color: whitesmoke;
+      }
+    }
+  }
+}
+
+// @include media-xsm {
+//   .links {
+//     flex-direction: column;
+//   }
+// }
+// @include media-lg {
+//   .links {
+//     flex-direction: row;
+//   }
+// }
+@media only screen and (max-width: 500px) {
+  .links {
+    flex-direction: column;
+  }
+}
